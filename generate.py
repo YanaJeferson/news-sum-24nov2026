@@ -202,7 +202,7 @@ tiles = [
      "A $41bn cash deal at $175 a share, announced before markets opened.", icon_sanofi),
     (MARGE + 2 * (TW + GAP), ROW2, (26, 26, 26), "MARKETS  ·  CRYPTO",
      "BITCOIN FALLS BELOW $60,000",
-     "The token slid through the level as chips dragged the Nasdaq down.", icon_bitcoin),
+     "The token slid below the level; the Nasdaq fell 1.5% as chips dropped.", icon_bitcoin),
 ]
 
 for args in tiles:
@@ -213,7 +213,7 @@ d.rectangle([30, 880, 994, 883], fill=INK)
 briefs = [
     (30, "AFRICA", "Sports court restores Senegal's AFCON title"),
     (360, "OCEANIA", "Solomon Islands lets its China pact lapse"),
-    (690, "SPACE", "Ariane 6 orbits 36 Amazon satellites"),
+    (690, "SPACE", "Ariane 6 launches 36 Amazon satellites"),
 ]
 for bx, tag, line in briefs:
     text(bx, 892, tag, font(SANS_B, 13), RED)
