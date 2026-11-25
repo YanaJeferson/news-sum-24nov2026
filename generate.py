@@ -58,7 +58,11 @@ text(30, 18, "THE WORLD TODAY", font(SERIF_B, 60))
 text(748, 14, "24", font(SANS_B, 74), RED)
 text(838, 30, "NOV", font(SANS_B, 30), INK)
 text(838, 60, "2026", font(SANS_B, 30), INK)
-text(30, 96, "TUESDAY 24 NOVEMBER 2026   ·   ONE DAY OF WORLD NEWS", font(SANS_B, 21), RED)
+sub = "TUESDAY 24 NOVEMBER 2026   ·   ONE DAY OF WORLD NEWS"
+text(30, 96, sub, font(SANS_B, 21), RED)
+note = "SIX REGIONS  ·  THIRTEEN STORIES"
+fn = font(SANS_B, 15)
+text(994 - d.textlength(note, font=fn), 101, note, fn, MUTED)
 d.rectangle([30, 132, 994, 135], fill=INK)
 d.rectangle([30, 135, 994, 139], fill=RED)
 
@@ -74,7 +78,7 @@ def tile(x, y, bg, region, headline, detail, icon):
     d.rectangle([x, y, x + TW, y + ICON_H], fill=bg)
     icon(x, y)
     # region tag
-    text(x + 16, y + ICON_H + 12, region, font(SANS_B, 14), RED)
+    text(x + 16, y + ICON_H + 12, region, font(SANS_B, 15), RED)
     # headline
     fh = font(SANS_B, 30)
     yy = y + ICON_H + 32
@@ -82,11 +86,11 @@ def tile(x, y, bg, region, headline, detail, icon):
         text(x + 16, yy, line, fh, INK)
         yy += 33
     # detail
-    yy += 6
-    fd = font(SERIF, 15)
+    yy += 7
+    fd = font(SERIF, 16)
     for line in wrap(detail, fd, TW - 30)[:3]:
         text(x + 16, yy, line, fd, MUTED)
-        yy += 18
+        yy += 20
 
 
 def icon_ukraine(x, y):
@@ -209,15 +213,17 @@ for args in tiles:
     tile(*args)
 
 # ---------------------------------------------------------------- briefs
-d.rectangle([30, 880, 994, 883], fill=INK)
+d.rectangle([30, 876, 994, 879], fill=INK)
+for sx in (342, 670):
+    d.rectangle([sx, 888, sx + 1, 946], fill=(210, 200, 184))
 briefs = [
     (30, "AFRICA", "Sports court restores Senegal's AFCON title"),
-    (360, "OCEANIA", "Solomon Islands lets its China pact lapse"),
-    (690, "SPACE", "Ariane 6 launches 36 Amazon satellites"),
+    (358, "OCEANIA", "Solomon Islands lets its China pact lapse"),
+    (686, "SPACE", "Ariane 6 launches 36 Amazon satellites"),
 ]
 for bx, tag, line in briefs:
-    text(bx, 892, tag, font(SANS_B, 13), RED)
-    para(bx, 910, line, font(SANS_B, 16), 300, 19, INK)
+    text(bx, 888, tag, font(SANS_B, 14), RED)
+    para(bx, 908, line, font(SANS_B, 17), 296, 21, INK)
 
 # ---------------------------------------------------------------- ticker
 d.rectangle([0, 956, W, H], fill=INK)
